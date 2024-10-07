@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Calendario</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="parent">
+        <!-- Div 1: Título de la página -->
+        <div class="div1 navbar">
+            <h1>Mi Calendario</h1>
+        </div>
+        
+        <!-- Div 2: Imagen del mes -->
+        <div class="div2">
+          <img src="path-to-image/january.jpg" alt="Imagen del Mes" id="mesImagen">
+        </div>
+        
+        <!-- Div 4: Botones de interacción -->
+        <div class="div4">
+            <select id="monthSelect">
+                <!-- Opciones de mes se generarán dinámicamente -->
+            </select>
+            <select id="yearSelect">
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+            </select>
+            <button id="prevMonth">Mes Anterior</button>
+            <button id="nextMonth">Mes Siguiente</button>
+        </div>
+    
+        <!-- Div 3: Calendario vista de mes -->
+        <div class="div3 calendar">
+            <!-- Calendario generado dinámicamente -->
+            <div class="weekdays">
+                <!-- Nombres de los días de la semana -->
+            </div>
+            <div class="days" id="calendarDays">
+                <!-- Días del mes -->
+            </div>
+          </div>
+
+                  <!-- Div 5: Citas especiales -->
+        <div class="div5">
+          <p id="citaEspecial">Cita del mes: "Esta es una cita especial"</p>
+      </div>
+          
+        <!-- Div 6: Footer con redes sociales -->
+        <div class="div6">
+            <p>Síguenos en:</p>
+            <a href="https://facebook.com" target="_blank">Facebook</a> | 
+            <a href="https://twitter.com" target="_blank">Twitter</a> |
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+        </div>
+    </div>
+
+    <script src="calendar.js"></script>
+</body>
+</html>
