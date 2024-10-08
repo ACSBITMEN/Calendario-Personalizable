@@ -14,25 +14,34 @@
         </div>
         
         <!-- Div 2: Imagen del mes -->
-        <div class="div2">
-          <img src="path-to-image/january.jpg" alt="Imagen del Mes" id="mesImagen">
+        <div class="div2 img-mounth">
+            <img src="" alt="Imagen del Mes" id="mesImagen">
         </div>
         
-        <!-- Div 4: Botones de interacción -->
-        <div class="div4">
-            <select id="monthSelect">
-                <!-- Opciones de mes se generarán dinámicamente -->
-            </select>
-            <select id="yearSelect">
-                <option value="2024">2024</option>
-                <option value="2025">2025</option>
-            </select>
-            <button id="prevMonth">Mes Anterior</button>
-            <button id="nextMonth">Mes Siguiente</button>
+        <!-- Div 4: Mostrar la fecha actual -->
+        <div class="div4 container-btnCalendar">
+            <p id="fechaActual"></p>
         </div>
     
-        <!-- Div 3: Calendario vista de mes -->
+        <!-- Div 3: Calendario vista de mes y botones de interacción -->
         <div class="div3 calendar">
+            <!-- Botones de interacción -->
+            <div class="botones-interaccion">
+              <div>
+                <select id="monthSelect">
+                    <!-- Opciones de mes se generarán dinámicamente -->
+                </select>
+                <select id="yearSelect">
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                </select>
+              </div>
+              <div>
+                <button id="prevMonth">Mes Anterior</button>
+                <button id="todayBtn">Hoy</button>
+                <button id="nextMonth">Mes Siguiente</button>
+              </div>
+            </div>
             <!-- Calendario generado dinámicamente -->
             <div class="weekdays">
                 <!-- Nombres de los días de la semana -->
@@ -40,22 +49,23 @@
             <div class="days" id="calendarDays">
                 <!-- Días del mes -->
             </div>
-          </div>
+        </div>
 
-                  <!-- Div 5: Citas especiales -->
-        <div class="div5">
-          <p id="citaEspecial">Cita del mes: "Esta es una cita especial"</p>
-      </div>
-          
+        <!-- Div 5: Citas especiales -->
+        <div class="div5 citaTexto">
+            <p id="citaEspecial">Cita del mes: "Esta es una cita especial"</p>
+        </div>
+        
         <!-- Div 6: Footer con redes sociales -->
-        <div class="div6">
-            <p>Síguenos en:</p>
-            <a href="https://facebook.com" target="_blank">Facebook</a> | 
-            <a href="https://twitter.com" target="_blank">Twitter</a> |
-            <a href="https://instagram.com" target="_blank">Instagram</a>
+        <div class="div6 footer">
+          <p>Conoce más:</p>
+          <a href="https://facebook.com" target="_blank">Facebook</a> | 
+          <a href="https://twitter.com" target="_blank">Twitter</a> |
+          <a href="https://instagram.com" target="_blank">Instagram</a>
         </div>
     </div>
 
+    <script src="datos.js"></script>
     <script src="calendar.js"></script>
 </body>
 </html>

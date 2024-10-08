@@ -1,22 +1,22 @@
+// calendar.js
+
 const calendarDays = document.getElementById('calendarDays');
 const monthSelect = document.getElementById('monthSelect');
 const yearSelect = document.getElementById('yearSelect');
 const prevMonthBtn = document.getElementById('prevMonth');
 const nextMonthBtn = document.getElementById('nextMonth');
+const todayBtn = document.getElementById('todayBtn');
 const mesImagen = document.getElementById('mesImagen');
 const citaEspecial = document.getElementById('citaEspecial');
+const fechaActual = document.getElementById('fechaActual');
 
 let currentDate = new Date();
-
-const monthNames = [
-    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-    'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-];
+let selectedDate = new Date();
 
 // Generar opciones para el selector de meses
 function populateMonthSelect() {
     monthSelect.innerHTML = '';
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < monthNames.length; i++) {
         const option = document.createElement('option');
         option.value = i;
         option.textContent = monthNames[i];
@@ -26,61 +26,39 @@ function populateMonthSelect() {
 
 // Establecer el mes y año actuales en los selectores
 function setSelectValues() {
-    monthSelect.value = currentDate.getMonth();
-    yearSelect.value = currentDate.getFullYear();
+    monthSelect.value = selectedDate.getMonth();
+    yearSelect.value = selectedDate.getFullYear();
 }
 
 // Actualizar la imagen del mes y la cita
 function updateMesImagenYCita() {
-    // Rutas de las imágenes (asegúrate de que las rutas sean correctas)
-    const imagenes = [
-        'path-to-image/january.jpg',   // Enero
-        'path-to-image/february.jpg',  // Febrero
-        'path-to-image/march.jpg',     // Marzo
-        'path-to-image/april.jpg',     // Abril
-        'path-to-image/may.jpg',       // Mayo
-        'path-to-image/june.jpg',      // Junio
-        'path-to-image/july.jpg',      // Julio
-        'path-to-image/august.jpg',    // Agosto
-        'path-to-image/september.jpg', // Septiembre
-        'path-to-image/october.jpg',   // Octubre
-        'path-to-image/november.jpg',  // Noviembre
-        'path-to-image/december.jpg'   // Diciembre
-    ];
-
-    // Citas para cada mes
-    const citas = [
-        'Cita de Enero: "Comienza el año con energía."',    // Enero
-        'Cita de Febrero: "El amor está en el aire."',      // Febrero
-        'Cita de Marzo: "La primavera llega con nuevas oportunidades."',  // Marzo
-        'Cita de Abril: "Tiempo de renovación."',           // Abril
-        'Cita de Mayo: "Disfruta de cada momento."',        // Mayo
-        'Cita de Junio: "Verano y aventuras te esperan."',  // Junio
-        'Cita de Julio: "Tiempo de sol y diversión."',      // Julio
-        'Cita de Agosto: "Aprovecha cada día al máximo."',  // Agosto
-        'Cita de Septiembre: "Nuevos comienzos y retos."',  // Septiembre
-        'Cita de Octubre: "El otoño pinta de colores el paisaje."', // Octubre
-        'Cita de Noviembre: "Agradece todo lo bueno."',     // Noviembre
-        'Cita de Diciembre: "Cierra el año con alegría."'   // Diciembre
-    ];
-
     // Actualizar la imagen del mes
-    mesImagen.src = imagenes[currentDate.getMonth()] || 'path-to-image/default.jpg';
+    mesImagen.src = imagenes[selectedDate.getMonth()] || 'path-to-image/default.jpg';
 
     // Actualizar la cita
-    citaEspecial.textContent = citas[currentDate.getMonth()] || 'Cita del mes: "Esta es una cita especial"';
+    citaEspecial.textContent = citas[selectedDate.getMonth()] || 'Cita del mes: "Esta es una cita especial"';
+}
+
+// Actualizar la fecha actual en div4
+function updateFechaActual() {
+    const dayName = dayNames[currentDate.getDay()];
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    const monthName = monthNames[currentDate.getMonth()];
+    const year = currentDate.getFullYear();
+
+    fechaActual.textContent = `${dayName} ${day} de ${monthName} del ${year}`;
 }
 
 function renderCalendar() {
-    let year = currentDate.getFullYear();
-    let month = currentDate.getMonth();
+    let year = selectedDate.getFullYear();
+    let month = selectedDate.getMonth();
 
     // Limitar el año entre 2024 y 2025
     if (year < 2024) {
-        currentDate.setFullYear(2024);
+        selectedDate.setFullYear(2024);
         year = 2024;
     } else if (year > 2025) {
-        currentDate.setFullYear(2025);
+        selectedDate.setFullYear(2025);
         year = 2025;
     }
 
@@ -89,6 +67,9 @@ function renderCalendar() {
 
     // Actualizar imagen y cita
     updateMesImagenYCita();
+
+    // Actualizar la fecha actual
+    updateFechaActual();
 
     const firstDayOfMonth = new Date(year, month, 1);
     const lastDayOfMonth = new Date(year, month + 1, 0);
@@ -148,23 +129,29 @@ function renderCalendar() {
 
 // Eventos para los botones de navegación
 prevMonthBtn.addEventListener('click', () => {
-    currentDate.setMonth(currentDate.getMonth() - 1);
+    selectedDate.setMonth(selectedDate.getMonth() - 1);
     renderCalendar();
 });
 
 nextMonthBtn.addEventListener('click', () => {
-    currentDate.setMonth(currentDate.getMonth() + 1);
+    selectedDate.setMonth(selectedDate.getMonth() + 1);
+    renderCalendar();
+});
+
+// Evento para el botón "Hoy"
+todayBtn.addEventListener('click', () => {
+    selectedDate = new Date();
     renderCalendar();
 });
 
 // Eventos para los selectores
 monthSelect.addEventListener('change', () => {
-    currentDate.setMonth(parseInt(monthSelect.value));
+    selectedDate.setMonth(parseInt(monthSelect.value));
     renderCalendar();
 });
 
 yearSelect.addEventListener('change', () => {
-    currentDate.setFullYear(parseInt(yearSelect.value));
+    selectedDate.setFullYear(parseInt(yearSelect.value));
     renderCalendar();
 });
 
