@@ -30,6 +30,14 @@ function setSelectValues() {
     yearSelect.value = selectedDate.getFullYear();
 }
 
+function applyColorPalette() {
+    const paleta = paletasColores[selectedDate.getMonth()];
+    for (const variable in paleta) {
+        document.documentElement.style.setProperty(variable, paleta[variable]);
+    }
+}
+
+
 // Actualizar la imagen del mes y la cita
 function updateMesImagenYCita() {
     // Actualizar la imagen del mes
@@ -38,6 +46,8 @@ function updateMesImagenYCita() {
     // Actualizar la cita
     citaEspecial.textContent = citas[selectedDate.getMonth()] || 'Cita del mes: "Esta es una cita especial"';
 }
+
+
 
 // Actualizar la fecha actual en div4
 function updateFechaActual() {
@@ -49,21 +59,37 @@ function updateFechaActual() {
     fechaActual.textContent = `${dayName} ${day} de ${monthName} del ${year}`;
 }
 
+function populateYearSelect() {
+    yearSelect.innerHTML = '';
+    const startYear = 2022;
+    const endYear = 2028;
+    for (let year = startYear; year <= endYear; year++) {
+        const option = document.createElement('option');
+        option.value = year;
+        option.textContent = year;
+        yearSelect.appendChild(option);
+    }
+}
+
+
 function renderCalendar() {
     let year = selectedDate.getFullYear();
     let month = selectedDate.getMonth();
 
-    // Limitar el año entre 2024 y 2025
-    if (year < 2024) {
-        selectedDate.setFullYear(2024);
-        year = 2024;
-    } else if (year > 2025) {
-        selectedDate.setFullYear(2025);
-        year = 2025;
+    // Limitar el año entre 2022 y 2028
+    if (year < 2022) {
+        selectedDate.setFullYear(2022);
+        year = 2022;
+    } else if (year > 2028) {
+        selectedDate.setFullYear(2028);
+        year = 2028;
     }
 
     // Actualizar selectores
     setSelectValues();
+
+    // Aplicar la paleta de colores
+    applyColorPalette();
 
     // Actualizar imagen y cita
     updateMesImagenYCita();
@@ -103,6 +129,17 @@ function renderCalendar() {
             dayDiv.classList.add('hoy');
         }
 
+            // Verificar si el día es festivo
+    const isFestivo = festivos.some(festivo =>
+        festivo.day === i && festivo.month === month && festivo.year === year
+        );
+        if (isFestivo) {
+            dayDiv.classList.add('festivo');
+        }
+    
+        calendarDays.appendChild(dayDiv);
+        }
+
         calendarDays.appendChild(dayDiv);
     }
 
@@ -125,7 +162,6 @@ function renderCalendar() {
         weekdayDiv.textContent = weekdays[i];
         weekdaysContainer.appendChild(weekdayDiv);
     }
-}
 
 // Eventos para los botones de navegación
 prevMonthBtn.addEventListener('click', () => {
@@ -156,5 +192,6 @@ yearSelect.addEventListener('change', () => {
 });
 
 // Inicializar el calendario
+populateYearSelect();
 populateMonthSelect();
 renderCalendar();

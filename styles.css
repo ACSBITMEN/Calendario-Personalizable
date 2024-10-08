@@ -3,10 +3,12 @@
   --color-primario: #3498db;
   --color-secundario: #3b3b3b;
   --color-hoy: #3498db;
+  --color-festivo: #e74c3c;
   --color-texto: #333;
   --color-fondo: #fff;
   --bg-color-body: #21252B;
 }
+
 
 *{
   margin: 0;
@@ -24,13 +26,17 @@ body {
   justify-content: center;
 }
 
+body, .parent, .navbar, .days div {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
 .parent {
   background-color: var(--color-fondo);
   width: 80%;
   max-width: 1200px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(10, 1fr);
+  grid-template-rows: 60px repeat(9, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   height: 100%;
@@ -154,6 +160,12 @@ body {
   font-weight: 600;
 }
 
+.days div.festivo {
+  background-color: var(--color-festivo);
+  color: var(--color-fondo);
+  font-weight: bold;
+}
+
 .days div.otro-mes {
   background-color: #dbdbdb;
   color: #afafaf;
@@ -170,7 +182,7 @@ body {
 }
 
 .footer {
-  background-color: #182d46;
+  background-color: var(--color-secundario);
   color: #fff;
   text-align: center;
   padding: 10px;
