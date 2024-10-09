@@ -8,14 +8,6 @@ const monthNames = [
 // Nombres de los días de la semana
 const dayNames = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
 
-// Días festivos de Colombia para 2024
-const festivos = [
-  { day: 1, month: 0, year: 2024, name: 'Año Nuevo' },           // 1 de Enero
-  { day: 10, month: 0, year: 2024, name: 'Día de Reyes' },       // 10 de Enero
-  { day: 20, month: 2, year: 2024, name: 'Día de San José' },    // 20 de Marzo
-  // Agrega todos los días festivos correspondientes
-];
-
 // Rutas de las imágenes para cada mes
 const imagenes = [
   'assets/img/ImgForCalendar/img1.jpeg',   // Enero
@@ -51,75 +43,174 @@ const citas = [
 // Paletas de colores para cada mes
 const paletasColores = [
   { // Enero
-    '--color-primario': '#7ABA78',
-    '--color-secundario': '#0A6847',
-    '--color-hoy': '#900C3F',
-    '--color-festivo': '#581845',
+    '--color-primario': '#758694',
+    '--color-secundario': '#405D72',
+    '--color-hoy': '#C70039',
+    '--color-festivo': '#8D9BA7',
   },
   { // Febrero
-    '--color-primario': '#D988B9',
-    '--color-secundario': '#B0578D',
+    '--color-primario': '#F075AA',
+    '--color-secundario': '#EC4C91',
     '--color-hoy': '#C70039',
-    '--color-festivo': '#900C3F',
+    '--color-festivo': '#F28AB7',
   },
   { // Marzo
-    '--color-primario': '#F7DCB9',
-    '--color-secundario': '#DEAC80',
+    '--color-primario': '#E1C44B',
+    '--color-secundario': '#81A263',
     '--color-hoy': '#900C3F',
-    '--color-festivo': '#581845',
+    '--color-festivo': '#E7D37F',
   },
   { // Abril
     '--color-primario': '#3FA2F6',
     '--color-secundario': '#0F67B1',
     '--color-hoy': '#C70039',
-    '--color-festivo': '#900C3F',
+    '--color-festivo': '#569CD7',
   },
   { // Mayo
-    '--color-primario': '#FFD35A',
-    '--color-secundario': '#FFA823',
+    '--color-primario': '#7ABA78',
+    '--color-secundario': '#0A6847',
     '--color-hoy': '#900C3F',
-    '--color-festivo': '#581845',
+    '--color-festivo': '#95C094',
   },
   { // Junio
-    '--color-primario': '#AAD7D9',
-    '--color-secundario': '#92C7CF',
-    '--color-hoy': '#C70039',
-    '--color-festivo': '#900C3F',
+    '--color-primario': '#AD88C6',
+    '--color-secundario': '#7469B6',
+    '--color-hoy': '#900C3F',
+    '--color-festivo': '#B7AAFA',
   },
   { // Julio
-    '--color-primario': '#8967B3',
-    '--color-secundario': '#624E88',
+    '--color-primario': '#7E60BF',
+    '--color-secundario': '#433878',
     '--color-hoy': '#900C3F',
-    '--color-festivo': '#581845',
+    '--color-festivo': '#9C84B9',
   },
   { // Agosto
-    '--color-primario': '#758694',
-    '--color-secundario': '#405D72',
+    '--color-primario': '#3FA2F6',
+    '--color-secundario': '#0F67B1',
     '--color-hoy': '#C70039',
-    '--color-festivo': '#900C3F',
+    '--color-festivo': '#569CD7',
   },
   { // Septiembre
     '--color-primario': '#7C93C3',
     '--color-secundario': '#55679C',
     '--color-hoy': '#900C3F',
-    '--color-festivo': '#581845',
+    '--color-festivo': '#99A6C1',
   },
   { // Octubre
-    '--color-primario': '#FD8B51',
-    '--color-secundario': '#CB6040',
-    '--color-hoy': '#E85C0D',
-    '--color-festivo': '#FFAD60',
+    '--color-primario': '#D0440E',
+    '--color-secundario': '#3E3030',
+    '--color-hoy': '#C12A0E',
+    '--color-festivo': '#F19A40',
   },
   { // Noviembre
-    '--color-primario': '#72BF78',
-    '--color-secundario': '#347928',
+    '--color-primario': '#4D869C',
+    '--color-secundario': '#003C43',
     '--color-hoy': '#900C3F',
-    '--color-festivo': '#581845',
+    '--color-festivo': '#77B0AA',
   },
   { // Diciembre
-    '--color-primario': '#347928',
-    '--color-secundario': '#B8001F',
+    '--color-primario': '#121212',  // 30475E
+    '--color-secundario': '#30475E', // 121212
     '--color-hoy': '#FABC3F',
-    '--color-festivo': '#900C3F',
+    '--color-festivo': '#F05454', // 384B70
   }
 ];
+
+// Función para calcular los festivos de Colombia
+function calcularFestivosColombia(year) {
+  const festivos = [];
+
+  // Función para trasladar festivos al lunes más cercano
+  function trasladarAlLunes(fecha) {
+    const diaSemana = fecha.getDay();
+    if (diaSemana === 0) {
+      // Si cae en domingo, mover al lunes
+      fecha.setDate(fecha.getDate() + 1);
+    } else if (diaSemana !== 1) {
+      // Si no es lunes, mover al siguiente lunes
+      fecha.setDate(fecha.getDate() + (8 - diaSemana));
+    }
+    return fecha;
+  }
+
+  // Festivos fijos
+  festivos.push({ day: 1, month: 0, year, name: 'Año Nuevo' }); // 1 de enero
+  festivos.push({ day: 1, month: 4, year, name: 'Día del Trabajo' }); // 1 de mayo
+  festivos.push({ day: 20, month: 6, year, name: 'Día de la Independencia' }); // 20 de julio
+  festivos.push({ day: 7, month: 7, year, name: 'Batalla de Boyacá' }); // 7 de agosto
+  festivos.push({ day: 8, month: 11, year, name: 'Inmaculada Concepción' }); // 8 de diciembre
+  festivos.push({ day: 25, month: 11, year, name: 'Navidad' }); // 25 de diciembre
+
+  // Festivos que se trasladan al lunes más cercano
+  const festivosTrasladables = [
+    { day: 6, month: 0, name: 'Día de Reyes' },
+    { day: 19, month: 2, name: 'Día de San José' },
+    { day: 29, month: 5, name: 'San Pedro y San Pablo' },
+    { day: 15, month: 7, name: 'Asunción de la Virgen' },
+    { day: 12, month: 9, name: 'Día de la Raza' },
+    { day: 1, month: 10, name: 'Día de Todos los Santos' },
+    { day: 11, month: 10, name: 'Independencia de Cartagena' },
+  ];
+
+  festivosTrasladables.forEach(festivo => {
+    let fecha = new Date(year, festivo.month, festivo.day);
+    fecha = trasladarAlLunes(fecha);
+    festivos.push({ day: fecha.getDate(), month: fecha.getMonth(), year: fecha.getFullYear(), name: festivo.name });
+  });
+
+  // Cálculo de la fecha de Pascua
+  function calcularPascua(year) {
+    const A = year % 19;
+    const B = Math.floor(year / 100);
+    const C = year % 100;
+    const D = Math.floor(B / 4);
+    const E = B % 4;
+    const F = Math.floor((B + 8) / 25);
+    const G = Math.floor((B - F + 1) / 3);
+    const H = (19 * A + B - D - G + 15) % 30;
+    const I = Math.floor(C / 4);
+    const K = C % 4;
+    const L = (32 + 2 * E + 2 * I - H - K) % 7;
+    const M = Math.floor((A + 11 * H + 22 * L) / 451);
+    const month = Math.floor((H + L - 7 * M + 114) / 31) - 1;
+    const day = ((H + L - 7 * M + 114) % 31) + 1;
+    return new Date(year, month, day);
+  }
+
+  const pascua = calcularPascua(year);
+
+  // Festivos móviles relacionados con la Pascua
+  const juevesSanto = new Date(pascua);
+  juevesSanto.setDate(pascua.getDate() - 3);
+  festivos.push({ day: juevesSanto.getDate(), month: juevesSanto.getMonth(), year, name: 'Jueves Santo' });
+
+  const viernesSanto = new Date(pascua);
+  viernesSanto.setDate(pascua.getDate() - 2);
+  festivos.push({ day: viernesSanto.getDate(), month: viernesSanto.getMonth(), year, name: 'Viernes Santo' });
+
+  const ascension = new Date(pascua);
+  ascension.setDate(pascua.getDate() + 43);
+  const fechaAscension = trasladarAlLunes(ascension);
+  festivos.push({ day: fechaAscension.getDate(), month: fechaAscension.getMonth(), year: fechaAscension.getFullYear(), name: 'Ascensión del Señor' });
+
+  const corpusChristi = new Date(pascua);
+  corpusChristi.setDate(pascua.getDate() + 64);
+  const fechaCorpus = trasladarAlLunes(corpusChristi);
+  festivos.push({ day: fechaCorpus.getDate(), month: fechaCorpus.getMonth(), year: fechaCorpus.getFullYear(), name: 'Corpus Christi' });
+
+  const sagradoCorazon = new Date(pascua);
+  sagradoCorazon.setDate(pascua.getDate() + 71);
+  const fechaSagradoCorazon = trasladarAlLunes(sagradoCorazon);
+  festivos.push({ day: fechaSagradoCorazon.getDate(), month: fechaSagradoCorazon.getMonth(), year: fechaSagradoCorazon.getFullYear(), name: 'Sagrado Corazón de Jesús' });
+
+  // Añadir todos los domingos del año como festivos
+  let fecha = new Date(year, 0, 1); // Comenzar el 1 de enero
+  while (fecha.getFullYear() === year) {
+    if (fecha.getDay() === 0) { // Si es domingo
+      festivos.push({ day: fecha.getDate(), month: fecha.getMonth(), year: fecha.getFullYear(), name: 'Domingo', isDomingo: true });
+    }
+    fecha.setDate(fecha.getDate() + 1); // Siguiente día
+  }
+
+  return festivos;
+}

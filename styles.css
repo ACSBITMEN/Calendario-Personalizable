@@ -6,7 +6,6 @@
   --color-festivo: #e74c3c;
   --color-texto: #333;
   --color-fondo: #fff;
-  --bg-color-body: #21252B;
 }
 
 
@@ -17,7 +16,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: var(--bg-color-body);
+  background-color: var(--color-primario);
   color: var(--color-texto);
   margin: 0;
   padding: 0;
@@ -27,7 +26,11 @@ body {
 }
 
 body, .parent, .navbar, .days div {
-  transition: background-color 0.5s ease, color 0.5s ease;
+  transition: background-color 1s ease, color 1s ease;
+}
+
+.citaTexto {
+  transition: background-color .9S ease, color .9s ease;
 }
 
 .parent {
@@ -40,6 +43,7 @@ body, .parent, .navbar, .days div {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   height: 100%;
+  border-collapse: collapse;
 }
 
 .div1 { grid-area: 1 / 1 / 2 / 8; }
@@ -65,15 +69,23 @@ body, .parent, .navbar, .days div {
   color: var(--color-fondo);
   padding: 10px 0;
   font-size: 2.3em;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .img-mounth{
+  background-color: var(--color-secundario);
   contain: content;
 }
 
 .img-mounth img {
   width: 100%;
   height: auto;
+}
+
+.div3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
 
 .div4 {
@@ -93,7 +105,7 @@ body, .parent, .navbar, .days div {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin: 10px 0 10px;
 }
 
 .botones-interaccion div {
@@ -157,7 +169,10 @@ body, .parent, .navbar, .days div {
 .days div.hoy {
   background-color: var(--color-hoy);
   color: var(--color-fondo);
+  font-size: 1.3em;
   font-weight: 600;
+  border: 2px solid black;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .days div.festivo {

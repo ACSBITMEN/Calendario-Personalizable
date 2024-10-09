@@ -12,6 +12,7 @@ const fechaActual = document.getElementById('fechaActual');
 
 let currentDate = new Date();
 let selectedDate = new Date();
+let festivosDelAno = calcularFestivosColombia(selectedDate.getFullYear());
 
 // Generar opciones para el selector de meses
 function populateMonthSelect() {
@@ -30,13 +31,13 @@ function setSelectValues() {
     yearSelect.value = selectedDate.getFullYear();
 }
 
+// Aplicar la paleta de colores
 function applyColorPalette() {
     const paleta = paletasColores[selectedDate.getMonth()];
     for (const variable in paleta) {
         document.documentElement.style.setProperty(variable, paleta[variable]);
     }
 }
-
 
 // Actualizar la imagen del mes y la cita
 function updateMesImagenYCita() {
@@ -46,8 +47,6 @@ function updateMesImagenYCita() {
     // Actualizar la cita
     citaEspecial.textContent = citas[selectedDate.getMonth()] || 'Cita del mes: "Esta es una cita especial"';
 }
-
-
 
 // Actualizar la fecha actual en div4
 function updateFechaActual() {
@@ -59,6 +58,7 @@ function updateFechaActual() {
     fechaActual.textContent = `${dayName} ${day} de ${monthName} del ${year}`;
 }
 
+// Generar opciones para el selector de años
 function populateYearSelect() {
     yearSelect.innerHTML = '';
     const startYear = 2022;
@@ -71,18 +71,13 @@ function populateYearSelect() {
     }
 }
 
-
 function renderCalendar() {
     let year = selectedDate.getFullYear();
     let month = selectedDate.getMonth();
 
-    // Limitar el año entre 2022 y 2028
-    if (year < 2022) {
-        selectedDate.setFullYear(2022);
-        year = 2022;
-    } else if (year > 2028) {
-        selectedDate.setFullYear(2028);
-        year = 2028;
+    // Recalcular festivos si cambia el año
+    if (year !== festivosDelAno[0]?.year) {
+        festivosDelAno = calcularFestivosColombia(year);
     }
 
     // Actualizar selectores
@@ -100,20 +95,17 @@ function renderCalendar() {
     const firstDayOfMonth = new Date(year, month, 1);
     const lastDayOfMonth = new Date(year, month + 1, 0);
 
-    // Día de la semana del primer día del mes (0 - Domingo, 6 - Sábado)
     const startDay = firstDayOfMonth.getDay();
-
-    // Número total de días en el mes
     const totalDays = lastDayOfMonth.getDate();
 
-    // Limpiar los días previos
     calendarDays.innerHTML = '';
 
-    // Días del mes anterior
+    // Mostrar los días del mes anterior
     const prevMonthLastDay = new Date(year, month, 0).getDate();
-    for (let i = startDay; i > 0; i--) {
+    const prevMonthStart = prevMonthLastDay - startDay + 1;
+    for (let i = 0; i < startDay; i++) {
         const dayDiv = document.createElement('div');
-        dayDiv.textContent = prevMonthLastDay - i + 1;
+        dayDiv.textContent = prevMonthStart + i;
         dayDiv.classList.add('otro-mes');
         calendarDays.appendChild(dayDiv);
     }
@@ -125,27 +117,42 @@ function renderCalendar() {
 
         // Resaltar el día actual
         const today = new Date();
-        if (i === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
-            dayDiv.classList.add('hoy');
+        if (
+        i === today.getDate() &&
+        month === today.getMonth() &&
+        year === today.getFullYear()
+        ) {
+        dayDiv.classList.add('hoy');
         }
 
-            // Verificar si el día es festivo
-    const isFestivo = festivos.some(festivo =>
-        festivo.day === i && festivo.month === month && festivo.year === year
+        // Verificar si el día es festivo
+        const festivoEncontrado = festivosDelAno.find(
+        (festivo) =>
+            festivo.day === i && festivo.month === month && festivo.year === year
         );
-        if (isFestivo) {
-            dayDiv.classList.add('festivo');
+        if (festivoEncontrado) {
+        dayDiv.classList.add('festivo');
+        if (festivoEncontrado.isDomingo) {
+            dayDiv.classList.add('domingo');
         }
-    
-        calendarDays.appendChild(dayDiv);
         }
 
         calendarDays.appendChild(dayDiv);
     }
 
-    // Días del mes siguiente para completar la cuadrícula
-    const totalCells = calendarDays.children.length;
-    const nextDays = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
+    // Calcular el número total de celdas usadas hasta ahora
+    const totalCellsSoFar = startDay + totalDays;
+
+    // Calcular el número de semanas necesarias para mostrar el mes actual
+    const numWeeks = Math.ceil(totalCellsSoFar / 7);
+
+    // Calcular el total de celdas que debe tener el calendario (numWeeks * 7)
+    const totalCells = numWeeks * 7;
+
+  // Calcular el número de días del mes siguiente necesarios para completar la cuadrícula
+    const nextDays = totalCells - totalCellsSoFar;
+
+    // Mostrar los días del mes siguiente para completar la cuadrícula
     for (let i = 1; i <= nextDays; i++) {
         const dayDiv = document.createElement('div');
         dayDiv.textContent = i;
@@ -162,6 +169,7 @@ function renderCalendar() {
         weekdayDiv.textContent = weekdays[i];
         weekdaysContainer.appendChild(weekdayDiv);
     }
+}
 
 // Eventos para los botones de navegación
 prevMonthBtn.addEventListener('click', () => {
