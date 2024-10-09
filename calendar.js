@@ -9,6 +9,7 @@ const todayBtn = document.getElementById('todayBtn');
 const mesImagen = document.getElementById('mesImagen');
 const citaEspecial = document.getElementById('citaEspecial');
 const fechaActual = document.getElementById('fechaActual');
+const mounthView = document.getElementById('mounthView');
 
 let currentDate = new Date();
 let selectedDate = new Date();
@@ -48,6 +49,13 @@ function updateMesImagenYCita() {
     citaEspecial.textContent = citas[selectedDate.getMonth()] || 'Cita del mes: "Esta es una cita especial"';
 }
 
+// Actualizar el mes nombre del eligido por el usuario
+function updateMounthView() {
+    const monthName = monthNames[selectedDate.getMonth()];
+    const year = selectedDate.getFullYear();
+    mounthView.textContent = `${monthName} ${year}`;
+}
+
 // Actualizar la fecha actual en div4
 function updateFechaActual() {
     const dayName = dayNames[currentDate.getDay()];
@@ -55,7 +63,7 @@ function updateFechaActual() {
     const monthName = monthNames[currentDate.getMonth()];
     const year = currentDate.getFullYear();
 
-    fechaActual.textContent = `${dayName} ${day} de ${monthName} del ${year}`;
+    fechaActual.textContent = `Fecha: ${dayName} ${day} de ${monthName} del ${year}`;
 }
 
 // Generar opciones para el selector de años
@@ -91,6 +99,9 @@ function renderCalendar() {
 
     // Actualizar la fecha actual
     updateFechaActual();
+
+    // Actualizar el mes nombre del eligido por el usuario
+    updateMounthView();
 
     const firstDayOfMonth = new Date(year, month, 1);
     const lastDayOfMonth = new Date(year, month + 1, 0);
