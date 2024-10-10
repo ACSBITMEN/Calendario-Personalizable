@@ -17,9 +17,9 @@ const imagenes = [
   'assets/img/ImgForCalendar/img11.jpeg',  // Mayo
   'assets/img/ImgForCalendar/img6.jpeg',  // Junio
   'assets/img/ImgForCalendar/img7.jpeg',  // Julio
-  'assets/img/ImgForCalendar/img8.jpeg',  // Agosto
-  'assets/img/ImgForCalendar/img9.jpeg',  // Septiembre
-  'assets/img/ImgForCalendar/img10.jpeg', // Octubre
+  './assets/img/ImgForCalendar/img8.jpeg',  // Agosto
+  './assets/img/ImgForCalendar/img9.jpeg',  // Septiembre
+  'https://raw.githubusercontent.com/ACSBITMEN/Calendario-Personalizable/refs/heads/main/assets/img/ImgForCalendar/Img10.jpeg', // Octubre
   'assets/img/ImgForCalendar/img5.jpeg', // Noviembre
   'assets/img/ImgForCalendar/img12.jpeg'  // Diciembre
 ];
