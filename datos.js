@@ -10,34 +10,34 @@ const dayNames = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes
 
 // Rutas de las imágenes para cada mes
 const imagenes = [
-  'assets/img/ImgForCalendar/img1.jpeg',   // Enero
+  'assets/img/ImgForCalendar/img1.jpeg',  // Enero
   'assets/img/ImgForCalendar/img2.jpeg',  // Febrero
-  'assets/img/ImgForCalendar/img3.jpeg',     // Marzo
-  'assets/img/ImgForCalendar/img4.jpeg',     // Abril
-  'assets/img/ImgForCalendar/img5.jpeg',       // Mayo
-  'assets/img/ImgForCalendar/img6.jpeg',      // Junio
-  'assets/img/ImgForCalendar/img7.jpeg',      // Julio
-  'assets/img/ImgForCalendar/img8.jpeg',    // Agosto
-  'assets/img/ImgForCalendar/img9.jpeg', // Septiembre
-  'assets/img/ImgForCalendar/img10.jpeg',   // Octubre
-  'assets/img/ImgForCalendar/img11.jpeg',  // Noviembre
-  'assets/img/ImgForCalendar/img12.jpeg'   // Diciembre
+  'assets/img/ImgForCalendar/img3.jpeg',  // Marzo
+  'assets/img/ImgForCalendar/img4.jpeg',  // Abril
+  'assets/img/ImgForCalendar/img11.jpeg',  // Mayo
+  'assets/img/ImgForCalendar/img6.jpeg',  // Junio
+  'assets/img/ImgForCalendar/img7.jpeg',  // Julio
+  'assets/img/ImgForCalendar/img8.jpeg',  // Agosto
+  'assets/img/ImgForCalendar/img9.jpeg',  // Septiembre
+  'assets/img/ImgForCalendar/img10.jpeg', // Octubre
+  'assets/img/ImgForCalendar/img5.jpeg', // Noviembre
+  'assets/img/ImgForCalendar/img12.jpeg'  // Diciembre
 ];
 
 // Citas para cada mes
 const citas = [
-  'Cita de Enero: "Comienza el año con energía."',    // Enero
-  'Cita de Febrero: "El amor está en el aire."',      // Febrero
-  'Cita de Marzo: "La primavera llega con nuevas oportunidades."',  // Marzo
-  'Cita de Abril: "Tiempo de renovación."',           // Abril
-  'Cita de Mayo: "Disfruta de cada momento."',        // Mayo
-  'Cita de Junio: "Verano y aventuras te esperan."',  // Junio
-  'Cita de Julio: "Tiempo de sol y diversión."',      // Julio
-  'Cita de Agosto: "Aprovecha cada día al máximo."',  // Agosto
-  'Cita de Septiembre: "Nuevos comienzos y retos."',  // Septiembre
-  'Cita de Octubre: "El otoño pinta de colores el paisaje."', // Octubre
-  'Cita de Noviembre: "Agradece todo lo bueno."',     // Noviembre
-  'Cita de Diciembre: "Cierra el año con alegría."'   // Diciembre
+  '"Ya te lo he ordenado: ¡Sé fuerte y valiente! ¡No tengas miedo ni te desanimes! Porque el Señor tu Dios te acompañará dondequiera que vayas." - Josué 1:9',                                                                                                                                  // Enero
+  '"El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso. No se comporta con rudeza, no es egoísta, no se enoja fácilmente, no guarda rencor." - 1 Corintios 13:4-5',                         // Febrero
+  '"Porque yo sé muy bien los planes que tengo para ustedes —afirma el Señor—, planes de bienestar y no de calamidad, a fin de darles un futuro y una esperanza." - Jeremías 29:11',                                            // Marzo
+  '"Siempre humildes y amables, pacientes, tolerantes unos con otros en amor." - Efesios 4:2',                                                                        // Abril
+  '"Todo lo puedo en Cristo que me fortalece." - Filipenses 4:13',                                                                                                                                                              // Mayo
+  '"Confía en el Señor de todo corazón, y no en tu propia inteligencia. Reconócelo en todos tus caminos, y él allanará tus sendas." - Proverbios 3:5-6',                                                                  // 
+  '"El Señor mismo marchará al frente de ti y estará contigo; nunca te dejará ni te abandonará. No temas ni te desanimes." - Deuteronomio 31:8',                                                                                // Julio
+  '"A las montañas levanto mis ojos; ¿de dónde ha de venir mi ayuda? Mi ayuda proviene del Señor, creador del cielo y de la tierra." - Salmo 121:1-2',                                                                          // 
+  '"Hagan lo que hagan, trabajen de buena gana, como para el Señor y no como para nadie en este mundo, conscientes de que el Señor los recompensará con la herencia. Ustedes sirven a Cristo el Señor." - Colosenses 3:23-24',  // Septiembre
+  '"El Señor te protegerá; de todo mal protegerá tu vida. El Señor te cuidará en el hogar y en el camino, desde ahora y para siempre." - Salmo 121:7-8',                                                                        // Octubre
+  '"El Señor es mi pastor, nada me falta; en verdes pastos me hace descansar. Junto a tranquilas aguas me conduce." - Salmo 23:1-2',                                                                                            //
+  '"Estén siempre alegres, oren sin cesar, den gracias a Dios en toda situación, porque esta es su voluntad para ustedes en Cristo Jesús." - 1 Tesalonicenses 5:16-18'                                                          // Diciembre
 ];
 
 // Paletas de colores para cada mes
@@ -46,7 +46,7 @@ const paletasColores = [
     '--color-primario': '#758694',
     '--color-secundario': '#405D72',
     '--color-hoy': '#C70039',
-    '--color-festivo': '#8D9BA7',
+    '--color-festivo': '#8ABAC7',
   },
   { // Febrero
     '--color-primario': '#F075AA',
@@ -64,13 +64,13 @@ const paletasColores = [
     '--color-primario': '#3FA2F6',
     '--color-secundario': '#0F67B1', 
     '--color-hoy': '#C70039',
-    '--color-festivo': '#3DB9C1',
+    '--color-festivo': '#74CDDD',
   },
   { // Mayo
-    '--color-primario': '#0A6847',
-    '--color-secundario': '#16423C',
+    '--color-primario': '#4D869C',
+    '--color-secundario': '#003C43',
     '--color-hoy': '#900C3F',
-    '--color-festivo': '#8EC78C',
+    '--color-festivo': '#77B0AA',
   },
   { // Junio
     '--color-primario': '#AD88C6',
@@ -103,10 +103,10 @@ const paletasColores = [
     '--color-festivo': '#F19A40',
   },
   { // Noviembre
-    '--color-primario': '#4D869C',
-    '--color-secundario': '#003C43',
+    '--color-primario': '#0A6847',
+    '--color-secundario': '#16423C',
     '--color-hoy': '#900C3F',
-    '--color-festivo': '#77B0AA',
+    '--color-festivo': '#8EC78C',
   },
   { // Diciembre
     '--color-primario': '#121212',  // 30475E

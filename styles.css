@@ -100,7 +100,7 @@ body, .parent, .navbar, .days div {
 }
 
 .botones-interaccion {
-  background-color: #afafaf;
+  background-color: #e6e6e6;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -112,13 +112,19 @@ body, .parent, .navbar, .days div {
 .botones-interaccion div {
   display: flex;
   flex-direction: row;
-  max-width: 400px;
+  min-width: 200px;
+}
+
+.botones-interaccion div:nth-child(1) {
+  margin-right: 5px;
 }
 
 .botones-interaccion select, .botones-interaccion button {
-  margin: 0 5px;
   padding: 5px 10px;
   font-size: 1em;
+}
+
+.botones-interaccion select {
   border-radius: 3px;
 }
 
@@ -194,6 +200,7 @@ body, .parent, .navbar, .days div {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   font-style: italic;
   background-color: var(--color-secundario);
   color: var(--color-fondo);
@@ -225,6 +232,14 @@ body, .parent, .navbar, .days div {
   .navbar h1 {
     font-size: 2em;
   }
+
+  .botones-interaccion {
+    padding: 5px 0px 0 0px;
+  }
+
+  .botones-interaccion select, .botones-interaccion button {
+    margin: 5px 0;
+  }
 }
 
 
@@ -248,15 +263,19 @@ body, .parent, .navbar, .days div {
     height: 200px;
   }
   
-
-  .botones-interaccion
-  {
+  .botones-interaccion {
+    background-color: #e6e6e6;
     flex-direction: column;
+    padding: 0;
   }
 
   .botones-interaccion div {
     display: flex;
     flex-direction: row;
+  }
+
+  .botones-interaccion select {
+    margin-bottom: 1rem;
   }
 
   .days div {

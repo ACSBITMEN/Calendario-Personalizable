@@ -53,7 +53,7 @@ function updateMesImagenYCita() {
 function updateMounthView() {
     const monthName = monthNames[selectedDate.getMonth()];
     const year = selectedDate.getFullYear();
-    mounthView.textContent = `${monthName} ${year}`;
+    mounthView.textContent = `Calendario ${monthName} ${year}`;
 }
 
 // Actualizar la fecha actual en div4
@@ -63,7 +63,7 @@ function updateFechaActual() {
     const monthName = monthNames[currentDate.getMonth()];
     const year = currentDate.getFullYear();
 
-    fechaActual.textContent = `Fecha: ${dayName} ${day} de ${monthName} del ${year}`;
+    fechaActual.textContent = `Hoy: ${dayName} ${day} de ${monthName} del ${year}`;
 }
 
 // Generar opciones para el selector de años
