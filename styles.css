@@ -62,7 +62,7 @@ body, .parent, .navbar, .days div {
   position: relative;
 }
 
-.navbar img {
+.navbar .logo-acsb {
   width: 50px;
   position: absolute;
   top: .5rem;
