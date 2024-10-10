@@ -10,7 +10,7 @@ const dayNames = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes
 
 // Rutas de las imágenes para cada mes
 const imagenes = [
-  'assets/img/ImgForCalendar/img1.jpeg',  // Enero
+  'https://raw.githubusercontent.com/ACSBITMEN/Calendario-Personalizable/refs/heads/main/assets/img/ImgForCalendar/Img1.jpeg',  // Enero
   'assets/img/ImgForCalendar/img2.jpeg',  // Febrero
   'assets/img/ImgForCalendar/img3.jpeg',  // Marzo
   'assets/img/ImgForCalendar/img4.jpeg',  // Abril
