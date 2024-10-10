@@ -68,6 +68,7 @@ body, .parent, .navbar, .days div {
   letter-spacing: 1.5px;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   font-family: DS-BebasNeueT;
+  cursor: context-menu;
 }
 @font-face {
   font-family: 'DS-BebasNeueT';
@@ -75,7 +76,7 @@ body, .parent, .navbar, .days div {
 }
 
 .img-mounth{
-  background-color: var(--color-primario);
+  background-color: var(--color-secundario);
   contain: content;
   border-top-left-radius: 15px;
 }
@@ -100,6 +101,7 @@ body, .parent, .navbar, .days div {
   border-top-right-radius: 15px;
   font-size: 1.2em;
   font-family: DS-BebasNeue;
+  cursor: context-menu;
 }
 @font-face {
   font-family: 'DS-BebasNeue';
@@ -107,6 +109,7 @@ body, .parent, .navbar, .days div {
 }
 
 .div4 p {
+  color:#3b3b3b;
   font-size: 1.2em;
   font-weight: bold;
 }
@@ -147,6 +150,7 @@ body, .parent, .navbar, .days div {
 .botones-interaccion select, .botones-interaccion button {
   padding: 5px 10px;
   font-size: 1em;
+  cursor: pointer;
 }
 
 .botones-interaccion select {
@@ -174,6 +178,7 @@ body, .parent, .navbar, .days div {
   font-weight: bold;
   padding: 10px 0 8px;
   border-radius: 3px;
+  cursor: context-menu;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
@@ -206,8 +211,8 @@ body, .parent, .navbar, .days div {
   color: var(--color-fondo);
   font-size: 1.3em;
   font-weight: 600;
-  border: 2px solid black;
-  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+  border: 1px solid black;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .days div.festivo {
@@ -225,17 +230,23 @@ body, .parent, .navbar, .days div {
 .footer {
   background-color: var(--color-secundario);
   color: #fff;
-  text-align: center;
   padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .footer a {
-  color: #fff;
+  font-size: 1.2em;
+  color: #f6f6f6;
   text-decoration: none;
+  margin: 0 5px;
+  padding: 5px 3px;
 }
 
 .footer a:hover {
-  color: var(--color-primario);
+  color: var(--color-festivo);
   text-decoration: underline;
 }
 
@@ -255,11 +266,20 @@ body, .parent, .navbar, .days div {
   .botones-interaccion select, .botones-interaccion button {
     margin: 5px 0;
   }
+
+  .footer a {
+    font-size: 1.2em;
+  }
 }
 
 
 
 @media (max-width: 600px) {
+
+  body {
+    background-color: var(--color-secundario);
+  }
+
   .parent {
     width: 100%;
     display: flex;
@@ -307,4 +327,9 @@ body, .parent, .navbar, .days div {
   .botones-interaccion select, .botones-interaccion button {
       margin: 5px 0;
   }
+  
+  .footer a {
+  font-size: 1em;
+  }
+
 }

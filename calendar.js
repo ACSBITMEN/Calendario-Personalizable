@@ -63,7 +63,7 @@ function updateFechaActual() {
     const monthName = monthNames[currentDate.getMonth()];
     const year = currentDate.getFullYear();
 
-    fechaActual.textContent = `Hoy: ${dayName} ${day} de ${monthName} del ${year}`;
+    fechaActual.textContent = `Fecha: ${dayName} ${day} de ${monthName} del ${year}`;
 }
 
 // Generar opciones para el selector de años
