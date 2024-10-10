@@ -59,6 +59,14 @@ body, .parent, .navbar, .days div {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.navbar img {
+  width: 50px;
+  position: absolute;
+  top: .5rem;
+  left: 1rem;
 }
 
 .navbar h1 {
