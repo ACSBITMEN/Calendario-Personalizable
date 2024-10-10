@@ -34,12 +34,12 @@ body, .parent, .navbar, .days div {
 }
 
 .parent {
-  background-color: var(--color-fondo);
+  background-color: var(--color-primario);
   width: 80%;
   max-width: 1200px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: 60px repeat(9, 1fr);
+  grid-template-rows: 70px repeat(9, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   height: 100%;
@@ -53,10 +53,6 @@ body, .parent, .navbar, .days div {
 .div3 { grid-area: 4 / 4 / 10 / 8; } /* Calendario y botones */
 .div6 { grid-area: 10 / 1 / 11 / 8; }
 
-/* Estilos generales para las divisiones */
-.div1, .div2, .div3, .div4, .div5, .div6 {
-  border: 1px solid rgb(146, 146, 146);
-}
 
 .navbar {
   background-color: var(--color-primario);
@@ -66,15 +62,22 @@ body, .parent, .navbar, .days div {
 }
 
 .navbar h1 {
-  color: var(--color-fondo);
-  padding: 10px 0;
-  font-size: 1.5em;
+  color: white;
+  font-size: 2.3em;
+  font-weight: 600;
+  letter-spacing: 1.5px;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  font-family: DS-BebasNeueT;
+}
+@font-face {
+  font-family: 'DS-BebasNeueT';
+  src: url('/assets/fonts/bebas_neue/BebasNeue-Regular.ttf') format('truetype');
 }
 
 .img-mounth{
-  background-color: var(--color-secundario);
+  background-color: var(--color-primario);
   contain: content;
+  border-top-left-radius: 15px;
 }
 
 .img-mounth img {
@@ -83,21 +86,43 @@ body, .parent, .navbar, .days div {
 }
 
 .div3 {
+  background-color: var(--color-fondo);
   display: flex;
   flex-direction: column;
   justify-content: start;
 }
 
 .div4 {
+  background-color: var(--color-fondo);
   display: flex;
   justify-content: center;
   align-items: center;
+  border-top-right-radius: 15px;
+  font-size: 1.2em;
+  font-family: DS-BebasNeue;
+}
+@font-face {
+  font-family: 'DS-BebasNeue';
+  src: url('/assets/fonts/bebas_neue/BebasNeue-Regular.eot') format('truetype');
 }
 
 .div4 p {
   font-size: 1.2em;
   font-weight: bold;
 }
+
+.citaTexto {
+  background-color: var(--color-secundario);
+  color: var(--color-fondo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-style: italic;
+  padding: 10px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
 
 .botones-interaccion {
   background-color: #e6e6e6;
@@ -182,7 +207,7 @@ body, .parent, .navbar, .days div {
   font-size: 1.3em;
   font-weight: 600;
   border: 2px solid black;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
 }
 
 .days div.festivo {
@@ -196,16 +221,6 @@ body, .parent, .navbar, .days div {
   color: #afafaf;
 }
 
-.citaTexto {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-style: italic;
-  background-color: var(--color-secundario);
-  color: var(--color-fondo);
-  padding: 10px;
-}
 
 .footer {
   background-color: var(--color-secundario);
@@ -230,7 +245,7 @@ body, .parent, .navbar, .days div {
   }
 
   .navbar h1 {
-    font-size: 2em;
+    font-size: 2.2em;
   }
 
   .botones-interaccion {
@@ -250,13 +265,20 @@ body, .parent, .navbar, .days div {
     display: flex;
     flex-direction: column;
   }
-
+  
   .navbar {
-   height: 40px;
+    height: 40px;
   }
-
+  
+  .img-mounth{
+    border-top-left-radius: 0;
+  }
+  .div4 {
+    border-top-right-radius: 0;
+  }
+  
   .navbar h1 {
-    font-size: 1.7em;
+    font-size: 1.8em;
   }
 
   .img-mounth{
