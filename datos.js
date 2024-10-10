@@ -11,17 +11,17 @@ const dayNames = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes
 // Rutas de las imágenes para cada mes
 const imagenes = [
   'https://raw.githubusercontent.com/ACSBITMEN/Calendario-Personalizable/refs/heads/main/assets/img/ImgForCalendar/Img1.jpeg',  // Enero
-  'assets/img/ImgForCalendar/img2.jpeg',  // Febrero
-  'assets/img/ImgForCalendar/img3.jpeg',  // Marzo
-  'assets/img/ImgForCalendar/img4.jpeg',  // Abril
-  'assets/img/ImgForCalendar/img11.jpeg',  // Mayo
-  'assets/img/ImgForCalendar/img6.jpeg',  // Junio
-  'assets/img/ImgForCalendar/img7.jpeg',  // Julio
-  './assets/img/ImgForCalendar/img8.jpeg',  // Agosto
-  './assets/img/ImgForCalendar/img9.jpeg',  // Septiembre
+  'https://raw.githubusercontent.com/ACSBITMEN/Calendario-Personalizable/refs/heads/main/assets/img/ImgForCalendar/Img2.jpeg',  // Febrero
+  'https://raw.githubusercontent.com/ACSBITMEN/Calendario-Personalizable/refs/heads/main/assets/img/ImgForCalendar/Img3.jpeg',  // Marzo
+  'https://raw.githubusercontent.com/ACSBITMEN/Calendario-Personalizable/refs/heads/main/assets/img/ImgForCalendar/Img4.jpeg',  // Abril
+  'https://raw.githubusercontent.com/ACSBITMEN/Calendario-Personalizable/refs/heads/main/assets/img/ImgForCalendar/Img11.jpeg',  // Mayo
+  'https://raw.githubusercontent.com/ACSBITMEN/Calendario-Personalizable/refs/heads/main/assets/img/ImgForCalendar/Img6.jpeg',  // Junio
+  'https://raw.githubusercontent.com/ACSBITMEN/Calendario-Personalizable/refs/heads/main/assets/img/ImgForCalendar/Img7.jpeg',  // Julio
+  'https://raw.githubusercontent.com/ACSBITMEN/Calendario-Personalizable/refs/heads/main/assets/img/ImgForCalendar/Img8.jpeg',  // Agosto
+  'https://raw.githubusercontent.com/ACSBITMEN/Calendario-Personalizable/refs/heads/main/assets/img/ImgForCalendar/Img9.jpeg',  // Septiembre
   'https://raw.githubusercontent.com/ACSBITMEN/Calendario-Personalizable/refs/heads/main/assets/img/ImgForCalendar/Img10.jpeg', // Octubre
-  'assets/img/ImgForCalendar/img5.jpeg', // Noviembre
-  'assets/img/ImgForCalendar/img12.jpeg'  // Diciembre
+  'https://raw.githubusercontent.com/ACSBITMEN/Calendario-Personalizable/refs/heads/main/assets/img/ImgForCalendar/Img5.jpeg', // Noviembre
+  'https://raw.githubusercontent.com/ACSBITMEN/Calendario-Personalizable/refs/heads/main/assets/img/ImgForCalendar/Img12.jpeg'  // Diciembre
 ];
 
 // Citas para cada mes
