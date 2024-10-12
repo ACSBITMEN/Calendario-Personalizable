@@ -4,8 +4,10 @@
   --color-secundario: #3b3b3b;
   --color-hoy: #3498db;
   --color-festivo: #e74c3c;
+  --color-domingo: #eca457;
   --color-texto: #333;
   --color-fondo: #fff;
+  --color-evento-especial: #FFA500;
 }
 
 
@@ -39,7 +41,7 @@ body, .parent, .navbar, .days div {
   max-width: 1200px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: 70px repeat(9, 1fr);
+  grid-template-rows: 70px repeat(8, 1fr) 60px;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   height: 100%;
@@ -60,13 +62,6 @@ body, .parent, .navbar, .days div {
   align-items: center;
   justify-content: center;
   position: relative;
-}
-
-.navbar .logo-acsb {
-  width: 50px;
-  position: absolute;
-  top: .5rem;
-  left: 1rem;
 }
 
 .navbar h1 {
@@ -132,6 +127,9 @@ body, .parent, .navbar, .days div {
   font-style: italic;
   padding: 10px;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  -webkit-box-shadow: inset 0px 0px 15px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 0px 0px 15px -3px rgba(0,0,0,0.75);
+  box-shadow: inset 0px 0px 15px -3px rgba(0,0,0,0.75);
 }
 
 
@@ -204,14 +202,14 @@ body, .parent, .navbar, .days div {
 .days div {
   text-align: center;
   line-height: 60px;
-  cursor: pointer;
   border: 1px solid #ddd;
   background-color: var(--color-fondo);
   border-radius: 3px;
+  transition: .3s;
 }
 
 .days div:hover {
-  background-color: #00000028;
+  background-color: #00000017;
 }
 
 .days div.hoy {
@@ -220,11 +218,25 @@ body, .parent, .navbar, .days div {
   font-size: 1.3em;
   font-weight: 600;
   border: 1px solid black;
+  border-radius: 100%;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-.days div.festivo {
+/* Estilos para eventos especiales */
+.days div.evento-especial {
+  border: 2px gray dashed;
+  font-weight: bold;
+}
+
+.days div.festivo:not(.domingo) {
   background-color: var(--color-festivo);
+  color: var(--color-fondo);
+  border: 2px var(--color-evento-especial) dashed;
+  font-weight: bold;
+}
+
+.days div.festivo.domingo {
+  background-color: var(--color-domingo);
   color: var(--color-fondo);
   font-weight: bold;
 }

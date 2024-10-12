@@ -9,7 +9,7 @@ const todayBtn = document.getElementById('todayBtn');
 const mesImagen = document.getElementById('mesImagen');
 const citaEspecial = document.getElementById('citaEspecial');
 const fechaActual = document.getElementById('fechaActual');
-const mounthView = document.getElementById('mounthView');
+const monthView  = document.getElementById('monthView');
 
 let currentDate = new Date();
 let selectedDate = new Date();
@@ -50,10 +50,10 @@ function updateMesImagenYCita() {
 }
 
 // Actualizar el mes nombre del eligido por el usuario
-function updateMounthView() {
+function updateMonthView() {
     const monthName = monthNames[selectedDate.getMonth()];
     const year = selectedDate.getFullYear();
-    mounthView.textContent = `Calendario ${monthName} ${year}`;
+    monthView .textContent = `Calendario ${monthName} ${year}`;
 }
 
 // Actualizar la fecha actual en div4
@@ -62,7 +62,6 @@ function updateFechaActual() {
     const day = String(currentDate.getDate()).padStart(2, '0');
     const monthName = monthNames[currentDate.getMonth()];
     const year = currentDate.getFullYear();
-
     fechaActual.textContent = `Fecha: ${dayName} ${day} de ${monthName} del ${year}`;
 }
 
@@ -84,7 +83,7 @@ function renderCalendar() {
     let month = selectedDate.getMonth();
 
     // Recalcular festivos si cambia el año
-    if (year !== festivosDelAno[0]?.year) {
+    if (!festivosDelAno.length || festivosDelAno[0].year !== year) {
         festivosDelAno = calcularFestivosColombia(year);
     }
 
@@ -101,7 +100,7 @@ function renderCalendar() {
     updateFechaActual();
 
     // Actualizar el mes nombre del eligido por el usuario
-    updateMounthView();
+    updateMonthView();
 
     const firstDayOfMonth = new Date(year, month, 1);
     const lastDayOfMonth = new Date(year, month + 1, 0);
@@ -121,11 +120,11 @@ function renderCalendar() {
         calendarDays.appendChild(dayDiv);
     }
 
-    // Días del mes actual
+// Días del mes actual
     for (let i = 1; i <= totalDays; i++) {
         const dayDiv = document.createElement('div');
         dayDiv.textContent = i;
-
+    
         // Resaltar el día actual
         const today = new Date();
         if (
@@ -135,7 +134,7 @@ function renderCalendar() {
         ) {
         dayDiv.classList.add('hoy');
         }
-
+    
         // Verificar si el día es festivo
         const festivoEncontrado = festivosDelAno.find(
         (festivo) =>
@@ -143,11 +142,22 @@ function renderCalendar() {
         );
         if (festivoEncontrado) {
         dayDiv.classList.add('festivo');
+        dayDiv.setAttribute('title', festivoEncontrado.name); // Agregar el nombre como tooltip
         if (festivoEncontrado.isDomingo) {
             dayDiv.classList.add('domingo');
         }
         }
-
+    
+        // Verificar si el día es un evento especial
+        const eventoEspecialEncontrado = eventosEspeciales.find(
+        (evento) =>
+            evento.day === i && evento.month === month
+        );
+        if (eventoEspecialEncontrado) {
+        dayDiv.classList.add('evento-especial');
+        dayDiv.setAttribute('title', eventoEspecialEncontrado.name); // Agregar el nombre como tooltip
+        }
+    
         calendarDays.appendChild(dayDiv);
     }
 
