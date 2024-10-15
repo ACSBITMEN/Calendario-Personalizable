@@ -298,94 +298,29 @@ function calcularCarnavalDeBarranquilla(year) {
 function obtenerEventosEspeciales(year) {
   const eventos = [];
 
-  const eventosFijos = [
-{ day: 5, month: 0, year, name: 'Carnaval de Negros y Blancos' },  // 5 de Enero
-  { day: 4, month: 1, year, name: 'Día Mundial contra el Cáncer' },  // 4 de Febrero
-  { day: 14, month: 1, year, name: 'Día de San Valentín' },  // 14 de Febrero
-  { day: 8, month: 2, year, name: 'Día de la Mujer' },  // 8 de Marzo
-  { day: 20, month: 2, year, name: 'Día Internacional de la Felicidad' },  // 20 de Marzo
-  { day: 22, month: 2, year, name: 'Día Internacional del agua' },  // 22 de Marzo
-  { day: 22, month: 3, year, name: 'Día de la Tierra' },  // 22 de Abril
-  { day: 23, month: 3, year, name: 'Día del Idioma' },  // 23 de Abril
-  { day: 21, month: 4, year, name: 'Día de la Afrocolombianidad' },  // 21 de Mayo
-  { day: 5, month: 5, year, name: 'Día Mundial del Medio Ambiente' },  // 5 de Junio
-  { day: 11, month: 6, year, name: 'Grito de Independencia de Cartagena' },  // 11 de Julio
-  { day: 16, month: 6, year, name: 'Día de la Virgen del Carmen' },  // 16 de Julio
-  { day: 9, month: 7, year, name: 'Día Internacional de los Pueblos Indígenas' },  // 9 de Agosto
-  { day: 9, month: 8, year, name: 'Día de los Derechos Humanos en Colombia' },  // 9 de Septiembre
-  { day: 21, month: 8, year, name: 'Día Nacional del Ahorro de Energía' },  // 21 de Septiembre
-  { day: 19, month: 9, year, name: 'Día Internacional del Cáncer de Mama' },  // 19 de Octubre
-  { day: 31, month: 9, year, name: 'Celebración de Halloween' },  // 31 de Octubre
-  { day: 14, month: 10, year, name: 'Día Mundial de la Diabetes' },  // 14 de Noviembre
-  { day: 7, month: 11, year, name: 'Celebración 7 de Velitas' }, // 7 de Diciembre
-  { day: 24, month: 11, year, name: 'Celebración de Noche Buena' }, // 24 de Diciembre
-  { day: 28, month: 11, year, name: 'Dia de los inocentes' }, // 28 de Diciembre
-  { day: 31, month: 11, year, name: 'Celebración de Año Viejo' }, // 31 de Diciembre
-  ];
-
-  eventosFijos.forEach(evento => {
-    eventos.push({ day: evento.day, month: evento.month, year, name: evento.name });
-  });
-
-  const diaMadre = calcularDiaDeLaMadre(year);
-  if (diaMadre) {
-    eventos.push({ day: diaMadre.getDate(), month: diaMadre.getMonth(), year, name: 'Día de la Madre' });
-  }
-
-  const diaPadre = calcularDiaDelPadre(year);
-  if (diaPadre) {
-    eventos.push({ day: diaPadre.getDate(), month: diaPadre.getMonth(), year, name: 'Día del Padre' });
-  }
-
-  const diaAmorYAmistad = calcularDiaDelAmorYAmistad(year);
-  if (diaAmorYAmistad) {
-    eventos.push({ day: diaAmorYAmistad.getDate(), month: diaAmorYAmistad.getMonth(), year, name: 'Día del Amor y la Amistad' });
-  }
-
-  const diaNino = calcularDiaDelNino(year);
-  if (diaNino) {
-    eventos.push({ day: diaNino.getDate(), month: diaNino.getMonth(), year, name: 'Día del Niño' });
-  }
-
-  const carnaval = calcularCarnavalDeBarranquilla(year);
-  if (carnaval) {
-    eventos.push({ day: carnaval.getDate(), month: carnaval.getMonth(), year, name: 'Carnaval de Barranquilla' });
-  }
-
-  return eventos;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Array de eventos especiales
-const eventosEspeciales = [
-  
-  // Agrega tus eventos personales aquí
-];
-
-// Función para obtener los eventos especiales de un año dado
-function obtenerEventosEspeciales(year) {
-  const eventos = [];
-
   // Eventos fijos (los que no dependen del año)
   const eventosFijos = [
-    { day: 5, month: 0, name: 'Carnaval de Negros y Blancos' },  // 5 de Enero
-    // ... otros eventos fijos ...
+    { day: 5, month: 0, name: 'Carnaval de Negros y Blancos' },             // 5 de Enero
+    { day: 4, month: 1, name: 'Día Mundial contra el Cáncer' },             // 4 de Febrero
+    { day: 14, month: 1, name: 'Día de San Valentín' },                     // 14 de Febrero
+    { day: 8, month: 2, name: 'Día de la Mujer' },                          // 8 de Marzo
+    { day: 20, month: 2, name: 'Día Internacional de la Felicidad' },       // 20 de Marzo
+    { day: 22, month: 2, name: 'Día Internacional del Agua' },              // 22 de Marzo
+    { day: 22, month: 3, name: 'Día de la Tierra' },                        // 22 de Abril
+    { day: 23, month: 3, name: 'Día del Idioma' },                          // 23 de Abril
+    { day: 21, month: 4, name: 'Día de la Afrocolombianidad' },             // 21 de Mayo
+    { day: 5, month: 5, name: 'Día Mundial del Medio Ambiente' },           // 5 de Junio
+    { day: 16, month: 6, name: 'Día de la Virgen del Carmen' },             // 16 de Julio
+    { day: 9, month: 7, name: 'Día Internacional de los Pueblos Indígenas' }, // 9 de Agosto
+    { day: 9, month: 8, name: 'Día de los Derechos Humanos en Colombia' },  // 9 de Septiembre
+    { day: 21, month: 8, name: 'Día Nacional del Ahorro de Energía' },      // 21 de Septiembre
+    { day: 19, month: 9, name: 'Día Internacional del Cáncer de Mama' },    // 19 de Octubre
+    { day: 31, month: 9, name: 'Celebración de Halloween' },                // 31 de Octubre
+    { day: 14, month: 10, name: 'Día Mundial de la Diabetes' },             // 14 de Noviembre
+    { day: 7, month: 11, name: 'Celebración 7 de Velitas' },                // 7 de Diciembre
+    { day: 24, month: 11, name: 'Celebración de Noche Buena' },             // 24 de Diciembre
+    { day: 28, month: 11, name: 'Día de los Inocentes' },                   // 28 de Diciembre
+    { day: 31, month: 11, name: 'Celebración de Año Viejo' },               // 31 de Diciembre
   ];
 
   eventosFijos.forEach(evento => {
@@ -394,107 +329,33 @@ function obtenerEventosEspeciales(year) {
 
   // Día de la Madre
   const diaMadre = calcularDiaDeLaMadre(year);
-  eventos.push({
-    day: diaMadre.getDate(),
-    month: diaMadre.getMonth(),
-    year: diaMadre.getFullYear(),
-    name: 'Día de la Madre'
-  });
+  if (diaMadre) {
+    eventos.push({ day: diaMadre.getDate(), month: diaMadre.getMonth(), year, name: 'Día de la Madre' });
+  }
 
   // Día del Padre
   const diaPadre = calcularDiaDelPadre(year);
-  eventos.push({
-    day: diaPadre.getDate(),
-    month: diaPadre.getMonth(),
-    year: diaPadre.getFullYear(),
-    name: 'Día del Padre'
-  });
+  if (diaPadre) {
+    eventos.push({ day: diaPadre.getDate(), month: diaPadre.getMonth(), year, name: 'Día del Padre' });
+  }
 
   // Día del Amor y la Amistad
   const diaAmorYAmistad = calcularDiaDelAmorYAmistad(year);
-  eventos.push({
-    day: diaAmorYAmistad.getDate(),
-    month: diaAmorYAmistad.getMonth(),
-    year: diaAmorYAmistad.getFullYear(),
-    name: 'Día del Amor y la Amistad'
-  });
+  if (diaAmorYAmistad) {
+    eventos.push({ day: diaAmorYAmistad.getDate(), month: diaAmorYAmistad.getMonth(), year, name: 'Día del Amor y la Amistad' });
+  }
 
   // Día del Niño
   const diaNino = calcularDiaDelNino(year);
-  eventos.push({
-    day: diaNino.getDate(),
-    month: diaNino.getMonth(),
-    year: diaNino.getFullYear(),
-    name: 'Día del Niño'
-  });
+  if (diaNino) {
+    eventos.push({ day: diaNino.getDate(), month: diaNino.getMonth(), year, name: 'Día del Niño' });
+  }
 
   // Carnaval de Barranquilla
   const carnaval = calcularCarnavalDeBarranquilla(year);
-  eventos.push({
-    day: carnaval.getDate(),
-    month: carnaval.getMonth(),
-    year: carnaval.getFullYear(),
-    name: 'Carnaval de Barranquilla'
-  });
+  if (carnaval) {
+    eventos.push({ day: carnaval.getDate(), month: carnaval.getMonth(), year, name: 'Carnaval de Barranquilla' });
+  }
 
   return eventos;
 }
-
-// Funciones para calcular fechas móviles
-function calcularEnesimoDiaDeLaSemana(year, month, dayOfWeek, n) {
-  let count = 0;
-  let date = new Date(year, month, 1);
-
-  while (date.getMonth() === month) {
-    if (date.getDay() === dayOfWeek) {
-      count++;
-      if (count === n) {
-        return date;
-      }
-    }
-    date.setDate(date.getDate() + 1);
-  }
-
-  return null; // Si no se encuentra el día
-}
-
-function calcularUltimoDiaDeLaSemana(year, month, dayOfWeek) {
-  let date = new Date(year, month + 1, 0); // Último día del mes
-
-  while (date.getMonth() === month) {
-    if (date.getDay() === dayOfWeek) {
-      return date;
-    }
-    date.setDate(date.getDate() - 1);
-  }
-
-  return null; // Si no se encuentra el día
-}
-
-function calcularDiaDeLaMadre(year) {
-  return calcularEnesimoDiaDeLaSemana(year, 4, 0, 2); // Mayo es el mes 4
-}
-
-function calcularDiaDelPadre(year) {
-  return calcularEnesimoDiaDeLaSemana(year, 5, 0, 3); // Junio es el mes 5
-}
-
-function calcularDiaDelAmorYAmistad(year) {
-  return calcularEnesimoDiaDeLaSemana(year, 8, 6, 3); // Septiembre es el mes 8, sábado es 6
-}
-
-function calcularDiaDelNino(year) {
-  return calcularUltimoDiaDeLaSemana(year, 3, 6); // Abril es el mes 3
-}
-
-function calcularCarnavalDeBarranquilla(year) {
-  const pascua = calcularPascua(year);
-  const miercolesDeCeniza = new Date(pascua);
-  miercolesDeCeniza.setDate(pascua.getDate() - 46);
-  const carnaval = new Date(miercolesDeCeniza);
-  carnaval.setDate(miercolesDeCeniza.getDate() - 4); // Cuatro días antes
-  return carnaval;
-}
-
-
-
