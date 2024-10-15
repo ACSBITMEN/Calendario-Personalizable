@@ -249,6 +249,7 @@ function calcularEnesimoDiaDeLaSemana(year, month, dayOfWeek, n) {
   return null;
 }
 
+// Función para calcular Ultimo Dia De La Semana
 function calcularUltimoDiaDeLaSemana(year, month, dayOfWeek) {
   let date = new Date(year, month + 1, 0);
 
@@ -262,9 +263,11 @@ function calcularUltimoDiaDeLaSemana(year, month, dayOfWeek) {
   return null;
 }
 
+// Función para calcular Dia De La Madre
 function calcularDiaDeLaMadre(year) {
   return calcularEnesimoDiaDeLaSemana(year, 4, 0, 2);
 }
+
 
 function calcularDiaDelPadre(year) {
   return calcularEnesimoDiaDeLaSemana(year, 5, 0, 3);

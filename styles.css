@@ -86,7 +86,7 @@ body, .parent, .navbar, .days div {
 
 .img-mounth img {
   width: 100%;
-  height: auto;
+  height: auto; /*Tamaño*/
 }
 
 .div3 {
