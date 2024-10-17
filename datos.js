@@ -45,7 +45,7 @@ const paletasColores = [
   { // Enero
     '--color-primario': '#758694',
     '--color-secundario': '#405D72',
-    '--color-hoy': '#C70039',
+    '--color-hoy': '#405D72',
     '--color-domingo': '#94C1D0',
     '--color-festivo': '#7FB8C8',
     '--color-evento-especial': '#405D72',
@@ -61,7 +61,7 @@ const paletasColores = [
   { // Marzo
     '--color-primario': '#E1C44B',
     '--color-secundario': '#81A263',
-    '--color-hoy': '#900C3F',
+    '--color-hoy': '#81A263',
     '--color-domingo': '#DAC56F',
     '--color-festivo': '#E1C44B',
     '--color-evento-especial': '#A88909',
@@ -69,7 +69,7 @@ const paletasColores = [
   { // Abril
     '--color-primario': '#3FA2F6',
     '--color-secundario': '#0F67B1', 
-    '--color-hoy': '#C70039',
+    '--color-hoy': '#0F67B1',
     '--color-domingo': '#74CDDD',
     '--color-festivo': '#3DB9C1',
     '--color-evento-especial': '#0F67B1',
@@ -77,7 +77,7 @@ const paletasColores = [
   { // Mayo
     '--color-primario': '#5EA998',
     '--color-secundario': '#28585C',
-    '--color-hoy': '#900C3F',
+    '--color-hoy': '#28585C',
     '--color-domingo': '#68B8A5',
     '--color-festivo': '#579E8A',
     '--color-evento-especial': '#003C43',
@@ -85,7 +85,7 @@ const paletasColores = [
   { // Junio
     '--color-primario': '#AD88C6',
     '--color-secundario': '#7469B6',
-    '--color-hoy': '#900C3F',
+    '--color-hoy': '#7469B6',
     '--color-domingo': '#C0A3D3',
     '--color-festivo': '#B18FC9', 
     '--color-evento-especial': '#7469B6',
@@ -93,7 +93,7 @@ const paletasColores = [
   { // Julio
     '--color-primario': '#7E60BF',
     '--color-secundario': '#433878',
-    '--color-hoy': '#900C3F',
+    '--color-hoy': '#433878',
     '--color-domingo': '#A691D3',
     '--color-festivo': '#8C72C6', 
     '--color-evento-especial': '#433878',
@@ -101,7 +101,7 @@ const paletasColores = [
   { // Agosto
     '--color-primario': '#0E86D7',
     '--color-secundario': '#104A94',
-    '--color-hoy': '#C70039',
+    '--color-hoy': '#104A94',
     '--color-domingo': '#29C6F1',
     '--color-festivo': '#1ABBE2',
     '--color-evento-especial': '#104A94',
@@ -109,7 +109,7 @@ const paletasColores = [
   { // Septiembre
     '--color-primario': '#7C93C3',
     '--color-secundario': '#55679C',
-    '--color-hoy': '#900C3F',
+    '--color-hoy': '#55679C',
     '--color-domingo': '#F2A74A',
     '--color-festivo': '#99A6C1',
     '--color-evento-especial': '#3E3030',
@@ -125,14 +125,14 @@ const paletasColores = [
   { // Noviembre
     '--color-primario': '#0A6847',
     '--color-secundario': '#16423C',
-    '--color-hoy': '#900C3F',
+    '--color-hoy': '#16423C',
     '--color-domingo': '#8EC78C',
     '--color-festivo': '#89B67F',
     '--color-evento-especial': '#16423C',
   },
   { // Diciembre
-    '--color-primario': '#121212',  // 30475E
-    '--color-secundario': '#30475E', // 121212
+    '--color-primario': '#121212',
+    '--color-secundario': '#30475E', 
     '--color-hoy': '#FABC3F',
     '--color-domingo': '#F05454',
     '--color-festivo': '#8EC78C',

@@ -163,13 +163,39 @@ body, .parent, .navbar, .days div {
   border-radius: 3px;
 }
 
+.continainerTypesDay {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0 .2rem;
+}
+
+.continainerTypesDay div:nth-child(2) {
+  margin: 0 30px;
+}
+
+.continainerTypesDay div {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.continainerTypesDay .typesDay {
+  background-color: #f0f0f0;
+  width: 13px;
+  height: 13px;
+  margin: 0 5px;
+}
+
+
 .calendar {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: auto;
-  padding: 1rem;
+  padding: .5rem 1rem;
 }
 
 .weekdays {
@@ -212,23 +238,26 @@ body, .parent, .navbar, .days div {
   background-color: #00000017;
 }
 
-.days div.hoy {
+.days div.hoy, .continainerTypesDay div:nth-child(1) div.hoy {
   background-color: var(--color-hoy);
   color: var(--color-fondo);
   font-size: 1.3em;
   font-weight: 600;
-  border: 1px solid black;
-  border-radius: 100%;
+  border: 3px solid black;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
+.continainerTypesDay div:nth-child(1) div.hoy {
+  border: 2px solid black;
+}
+
 /* Estilos para eventos especiales */
-.days div.evento-especial {
+.days div.evento-especial, .continainerTypesDay div:nth-child(3) div.evento-especial {
   border: 2px gray dashed;
   font-weight: bold;
 }
 
-.days div.festivo:not(.domingo) {
+.days div.festivo:not(.domingo), .continainerTypesDay div:nth-child(2) div.festivo {
   background-color: var(--color-festivo);
   color: var(--color-fondo);
   border: 2px var(--color-evento-especial) dashed;
@@ -309,6 +338,10 @@ body, .parent, .navbar, .days div {
   .navbar {
     height: 40px;
   }
+
+  .navbar h1 {
+    font-size: 1em;
+  }
   
   .img-mounth{
     border-top-left-radius: 0;
@@ -316,10 +349,15 @@ body, .parent, .navbar, .days div {
   .div4 {
     border-top-right-radius: 0;
   }
-  
-  .navbar h1 {
-    font-size: 1.8em;
+
+  .div4 p {
+    color:#3b3b3b;
+    font-size: .8em;
+    font-weight: bold;
+    text-align: center;
   }
+  
+
 
   .img-mounth{
     height: 200px;
